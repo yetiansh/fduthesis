@@ -5440,6 +5440,49 @@ Copyright (C) 2017&ndash;2020 by Xiangdong Zeng <xdzeng96@gmail.com>.
 %    \end{macrocode}
 % \end{macro}
 %
+% \subsection{致谢}
+%
+% \begin{environment}{acknowledgement}
+% \begin{environment}{acknowledgement*}
+% 致谢环境。在中文模板定义了中英文双语致谢，但在英文模板中则没有
+% 定义中文致谢。
+%    \begin{macrocode}
+\NewDocumentEnvironment { acknowledgement  } { }
+%<class>  { \@@_acknowledgement_begin:    } { \@@_acknowledgement_end:      }
+%<class-en>  { \@@_acknowledgement_en_begin: } { \@@_acknowledgement_en_end:   }
+%<*class>
+\NewDocumentEnvironment { acknowledgement* } { }
+  { \@@_acknowledgement_en_begin: } { \@@_acknowledgement_en_end:   }
+%</class>
+%    \end{macrocode}
+% \end{environment}
+% \end{environment}
+%
+% \begin{macro}{\@@_acknowledgement_begin:,\@@_acknowledgement_en_begin:}
+% 致谢页标题。
+%    \begin{macrocode}
+%<*class>
+\cs_new_protected:Npn \@@_acknowledgement_begin:
+  { \@@_chapter:V \c_@@_name_acknowledgement_tl    }
+%</class>
+\cs_new_protected:Npn \@@_acknowledgement_en_begin:
+  { \@@_chapter:V \c_@@_name_acknowledgement_en_tl }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_acknowledgement_end:,\@@_acknowledgement_en_end:}
+%    \begin{macrocode}
+%<*class>
+\cs_new_protected:Npn \@@_acknowledgement_end:
+  {
+  }
+%</class>
+\cs_new_protected:Npn \@@_acknowledgement_en_end:
+  {
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsection{参考文献著录与引用}
 %
 % \changes{v0.6}{2017/10/27}{支持 \BibTeX{}，以实现参考文献的著录
